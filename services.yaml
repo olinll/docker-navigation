@@ -1,0 +1,16 @@
+# docker-index 额外服务配置
+# 此文件中定义的服务会显示在导航页最顶端，Docker 自动探测的服务排在后面
+#
+# 每个服务支持以下字段：
+#   title       - 服务名称（必填）
+#   url         - 访问地址（必填）
+#   description - 服务描述（可选）
+#   icon        - emoji 或图片 URL（可选）
+#   group       - 分组名称（可选，默认 Pinned）
+
+services:
+  - title: 1Panel
+    url: http://10.0.0.40:19000
+    description: 联想小主机 1Panel 控制面板
+    icon: "ico/1panel.webp"
+    group: Self-Service
