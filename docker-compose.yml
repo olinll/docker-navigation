@@ -1,20 +1,19 @@
 services:
   docker-index:
-    image: node:20-alpine
+    image: olinl/docker-navigation:latest
     container_name: docker-index
-    working_dir: /app
-    command: node src/index.js
     restart: unless-stopped
     ports:
       - "3000:3000"
     volumes:
-      - .:/app
+      - ./services.yaml:/app/services.yaml:ro
+      - ./ico:/app/ico:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
     environment:
       - PORT=3000
       - HOST_IP=192.168.1.100     # 改为你的宿主机 IP
       - SITE_TITLE=Docker Dashboard
-      - REFRESH_INTERVAL=30000
+      - REFRESH_INTERVAL=0
       - STRICT_MODE=false
     labels:
       - "nav.enable=false"        # 不把自己显示在导航页里
