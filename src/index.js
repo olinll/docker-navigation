@@ -57,7 +57,7 @@ app.get('/health', (req, res) => res.json({ status: 'ok' }));
 
 app.listen(config.PORT, () => {
   console.log(`[docker-index] Running at http://localhost:${config.PORT}`);
-  console.log(`[docker-index] Docker host: ${config.DOCKER_HOST}`);
+  console.log(`[docker-index] Docker socket: ${config.DOCKER_SOCKET}`);
   console.log(`[docker-index] Host IP: ${config.HOST_IP}`);
   console.log(`[docker-index] Strict mode: ${config.STRICT_MODE}`);
 });

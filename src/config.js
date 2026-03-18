@@ -4,10 +4,10 @@ module.exports = {
   // 服务监听端口
   PORT: parseInt(process.env.PORT || '3000', 10),
 
-  // Docker 连接地址，支持 TCP 或 Socket
+  // Docker 连接地址，支持 TCP 或 Socket 路径
   // TCP 示例: tcp://10.0.0.40:2375
   // Socket 示例: /var/run/docker.sock
-  DOCKER_HOST: process.env.DOCKER_HOST || '/var/run/docker.sock',
+  DOCKER_SOCKET: process.env.DOCKER_SOCKET || '/var/run/docker.sock',
 
   // 宿主机 IP，用于生成容器访问链接
   HOST_IP: process.env.HOST_IP || '127.0.0.1',

@@ -4,7 +4,7 @@ const { loadStaticServices } = require('./static-services');
 
 // 连接 Docker（支持 TCP 和 Socket）
 function buildDockerOpts() {
-  const host = config.DOCKER_HOST || '';
+  const host = config.DOCKER_SOCKET || '';
   const tcpMatch = host.match(/^tcp:\/\/([^:]+):(\d+)$/);
   if (tcpMatch) {
     return { host: tcpMatch[1], port: parseInt(tcpMatch[2], 10), protocol: 'http' };

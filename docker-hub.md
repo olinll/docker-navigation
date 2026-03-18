@@ -4,7 +4,8 @@
 
 > 本项目由 AI 全程辅助开发。
 
-**GitHub**: [olinll/docker-navigation](https://github.com/olinll/docker-navigation)
+**GitHub**: [olinll/docker-navigation](https://github.com/olinll/docker-navigation)  
+**Docker Hub**: [olinl/docker-navigation](https://hub.docker.com/r/olinl/docker-navigation)
 
 ---
 
@@ -42,6 +43,7 @@ services:
     environment:
       - HOST_IP=192.168.1.100     # 改为你的宿主机 IP
       - SITE_TITLE=My Dashboard
+      # - DOCKER_SOCKET=tcp://10.0.0.40:2375  # 使用 TCP 时取消注释并删除 socket 挂载
 ```
 
 ```bash
@@ -57,8 +59,8 @@ docker compose up -d
 | 变量 | 默认值 | 说明 |
 |---|---|---|
 | `PORT` | `3000` | 服务监听端口 |
-| `DOCKER_HOST` | `tcp://10.0.0.40:2375` | Docker 连接地址（TCP 或 Socket） |
-| `HOST_IP` | `10.0.0.40` | 宿主机 IP，用于生成容器访问链接 |
+| `DOCKER_SOCKET` | `/var/run/docker.sock` | Docker 连接地址（Socket 路径或 TCP 地址） |
+| `HOST_IP` | `127.0.0.1` | 宿主机 IP，用于生成容器访问链接 |
 | `SITE_TITLE` | `Docker Dashboard` | 页面标题 |
 | `REFRESH_INTERVAL` | `0` | 自动刷新间隔（毫秒），`0` 关闭 |
 | `STRICT_MODE` | `false` | `true` 时只显示有 `nav.enable=true` 的容器 |
